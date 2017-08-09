@@ -2,7 +2,7 @@
 一个常用的自定义加载ProgressDialog,方面以后使用！
 
 ## Gif(可能比较慢)：
-![](https://github.com/maning0303/MNProgressDialog/raw/master/screenshots/MN_ProgressDialog.png)
+![](https://github.com/maning0303/MNProgressDialog/raw/master/screenshots/MN_ProgressDialog.gif)
 
 ## 截图：
 ![](https://github.com/maning0303/MNProgressDialog/raw/master/screenshots/MN_ProgressDialog_Screenshot_001.png)
@@ -81,3 +81,5 @@
 ## 感谢：
 #### 源码里面的MNProgressWheel 使用的是下面的这个库,改了个名字,以免冲突!
 #### [materialish-progress](https://github.com/pnikosis/materialish-progress)
+#### 示例中的颜色选择器
+#### [hsv-alpha-color-picker-android](https://github.com/martin-stone/hsv-alpha-color-picker-android)
