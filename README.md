@@ -1,4 +1,4 @@
-# MNProgressDialog
+# MNProgressDialog [![](https://jitpack.io/v/maning0303/MNProgressDialog.svg)](https://jitpack.io/#maning0303/MNProgressDialog)
 一个常用的自定义加载ProgressDialog,方面以后使用！
 
 ## Gif(可能比较慢)：
