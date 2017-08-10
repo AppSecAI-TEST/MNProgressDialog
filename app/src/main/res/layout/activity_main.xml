@@ -13,63 +13,53 @@
         android:padding="10dp"
         >
 
-        <LinearLayout
+        <Button
+            android:id="@+id/btn01"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:background="@color/colorPrimary"
+            android:onClick="btnShowProgressDialog"
+            android:stateListAnimator="@null"
+            android:text="show(默认)"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"/>
 
+        <Button
+            android:id="@+id/btn02"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:onClick="btnShowProgressDialog02"
+            android:stateListAnimator="@null"
+            android:text="show(多文本)"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"/>
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/colorPrimary"
-                android:onClick="btnShowProgressDialog"
-                android:stateListAnimator="@null"
-                android:text="show(默认文案)"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"/>
+        <Button
+            android:id="@+id/btn03"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:onClick="btnShowProgressDialog03"
+            android:stateListAnimator="@null"
+            android:text="show(没有文本)"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"/>
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:background="@color/colorPrimary"
-                android:onClick="btnShowProgressDialog02"
-                android:stateListAnimator="@null"
-                android:text="show(多文本)"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"/>
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:background="@color/colorPrimary"
-                android:onClick="btnShowProgressDialog03"
-                android:stateListAnimator="@null"
-                android:text="show(没有文本)"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"/>
-
-        </LinearLayout>
-
-
-        <include
-            layout="@layout/layout_setting"
-            />
-
+        <Button
+            android:id="@+id/btn04"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:onClick="btnShowProgressDialog04"
+            android:stateListAnimator="@null"
+            android:text="自定义(外部点击消失)"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"/>
 
     </LinearLayout>
-
-
-    <include
-        layout="@layout/layout_color_picker"
-        android:visibility="gone"
-        />
-
 
 </RelativeLayout>

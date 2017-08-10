@@ -69,9 +69,19 @@ public class MProgressDialog implements View.OnClickListener {
         //点击事件
         dialog_window_background.setOnClickListener(this);
 
-
+        //默认相关
         progress_wheel.stopSpinning();
         tv_show.setText(defaultTextShow);
+
+        //设置默认配置
+        setCanceledOnTouchOutside(false);
+        setBackgroundWindowColor(getColor(R.color.mn_colorDialogWindowBg));
+        setBackgroundViewColor(getColor(R.color.mn_colorDialogViewBg));
+        setProgressColor(getColor(R.color.mn_colorDialogProgressBarColor));
+        setDialogTextColor(getColor(R.color.mn_colorDialogTextColor));
+        setProgressWidth(2);
+        setBackgroundViewCornerRadius(6);
+
     }
 
     public void show() {
