@@ -30,7 +30,6 @@ public class MStatusDialog {
     private Context mContext;
     private Dialog mDialog;
 
-    private RelativeLayout dialog_window_background;
     private RelativeLayout dialog_view_bg;
     private ImageView imageStatus;
     private TextView tvShow;
@@ -68,10 +67,10 @@ public class MStatusDialog {
         mDialog.getWindow().setAttributes(layoutParams);
 
         //获取布局
-        dialog_window_background = (RelativeLayout) mProgressDialogView.findViewById(R.id.dialog_window_background);
         dialog_view_bg = (RelativeLayout) mProgressDialogView.findViewById(R.id.dialog_view_bg);
         imageStatus = (ImageView) mProgressDialogView.findViewById(R.id.imageStatus);
         tvShow = (TextView) mProgressDialogView.findViewById(R.id.tvShow);
+
         dialog_view_bg_toast = (RelativeLayout) mProgressDialogView.findViewById(R.id.dialog_view_bg_toast);
         tvShowToast = (TextView) mProgressDialogView.findViewById(R.id.tvShowToast);
 
