@@ -126,6 +126,18 @@ public class MProgressDialog implements View.OnClickListener {
         }
     }
 
+    public void showWithProgress() {
+        dismiss();
+        progress_wheel.stopSpinning();
+        progress_wheel.setLinearProgress(true);
+        progress_wheel.setProgress(0.0f);
+        tv_show.setVisibility(View.VISIBLE);
+        tv_show.setText(defaultTextShow);
+        if (mProgressDialog != null) {
+            mProgressDialog.show();
+        }
+    }
+
     public void setCanceledOnTouchOutside(boolean cancle) {
         canceledOnTouchOutside = cancle;
     }
@@ -216,5 +228,25 @@ public class MProgressDialog implements View.OnClickListener {
     public void setOnDialogDismissListener(OnDialogDismissListener dialogDismissListener) {
         mDialogDismissListener = dialogDismissListener;
     }
+
+
+    //---------------------分割线----------------------带有进度条的Dialog
+
+    public void setDialogProgress(float progress) {
+        progress_wheel.setProgress(progress);
+    }
+
+    public void setProgressRimColor(int colorID) {
+        progress_wheel.setRimColor(colorID);
+    }
+
+    public void setProgressRimWidth(int width) {
+        progress_wheel.setRimWidth(width);
+    }
+
+    public void setDialogText(String dialogText) {
+        tv_show.setText(dialogText);
+    }
+
 
 }

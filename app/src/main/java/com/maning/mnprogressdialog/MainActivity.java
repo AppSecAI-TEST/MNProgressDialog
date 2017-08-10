@@ -9,6 +9,9 @@ import android.widget.Button;
 
 import com.maning.mndialoglibrary.MProgressDialog;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Context mContext;
@@ -21,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btn02;
     private Button btn03;
     private Button btn04;
+    private Button btn05;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +42,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn02 = (Button) findViewById(R.id.btn02);
         btn03 = (Button) findViewById(R.id.btn03);
         btn04 = (Button) findViewById(R.id.btn04);
+        btn05 = (Button) findViewById(R.id.btn05);
 
         btn01.setOnClickListener(this);
         btn02.setOnClickListener(this);
         btn03.setOnClickListener(this);
         btn04.setOnClickListener(this);
+        btn05.setOnClickListener(this);
     }
 
     private void configDialogDefault() {
         //新建一个Dialog
         mMProgressDialog = new MProgressDialog(this);
+        mMProgressDialog.setCanceledOnTouchOutside(true);
         mMProgressDialog.setOnDialogDismissListener(new MProgressDialog.OnDialogDismissListener() {
             @Override
             public void dismiss() {
@@ -74,6 +81,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
+
+
+    /**
+     * 带有下载进度的显示
+     */
+    private void configDialogWithProgress() {
+        //新建一个Dialog
+        mMProgressDialog = new MProgressDialog(this);
+        mMProgressDialog.setProgressRimColor(getMyColor(R.color.colorDialogProgressRimColor));
+        mMProgressDialog.setProgressRimWidth(1);
+
+        mMProgressDialog.setOnDialogDismissListener(new MProgressDialog.OnDialogDismissListener() {
+            @Override
+            public void dismiss() {
+                mHandler.removeCallbacksAndMessages(null);
+            }
+        });
+    }
+
 
     private int getMyColor(int colorID) {
         return mContext.getResources().getColor(colorID);
@@ -125,6 +151,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    public void showProgressDialog05() {
+        configDialogWithProgress();
+        mMProgressDialog.showWithProgress();
+        initTimer();
+    }
 
 
     @Override
@@ -142,7 +173,56 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn04:
                 showProgressDialog04();
                 break;
-
+            case R.id.btn05:
+                showProgressDialog05();
+                break;
         }
     }
+
+    private float currentProgress = 0.0f;
+    private Timer timer;
+    private TimerTask task;
+
+    private void initTimer() {
+        timer = new Timer();
+        task = new TimerTask() {
+            @Override
+            public void run() {
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (currentProgress < 1.0f) {
+                            int pro = (int) (currentProgress * 100);
+                            mMProgressDialog.setDialogText("视频下载进度: " + pro + "%");
+                            mMProgressDialog.setDialogProgress(currentProgress);
+
+                            currentProgress += 0.1;
+                        } else {
+                            destroyTimer();
+                            currentProgress = 0.0f;
+                            mMProgressDialog.setDialogProgress(1.0f);
+                            mMProgressDialog.setDialogText("完成");
+                            //关闭
+                            mHandler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    mMProgressDialog.dismiss();
+
+                                }
+                            }, 500);
+                        }
+                    }
+                });
+            }
+        };
+        timer.schedule(task, 0, 1000); //延时1000ms后执行，1000ms执行一次
+    }
+
+    private void destroyTimer() {
+        timer.cancel();
+        task.cancel();
+        timer = null;
+        task = null;
+    }
+
 }
