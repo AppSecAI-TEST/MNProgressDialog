@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 /**
  * Created by maning on 2017/8/9.
+ * 进度Dialog
  */
 
 public class MProgressDialog implements View.OnClickListener {
