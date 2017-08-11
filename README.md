@@ -1,13 +1,9 @@
 # MNProgressDialog [![](https://jitpack.io/v/maning0303/MNProgressDialog.svg)](https://jitpack.io/#maning0303/MNProgressDialog)
 一个常用的自定义加载ProgressDialog,方面以后使用！
 
-## Gif(可能比较慢)：
-![](https://github.com/maning0303/MNProgressDialog/raw/master/screenshots/MN_ProgressDialog.gif)
 
 ## 截图：
-![](https://github.com/maning0303/MNProgressDialog/raw/master/screenshots/MN_ProgressDialog_Screenshot_003.png)
-![](https://github.com/maning0303/MNProgressDialog/raw/master/screenshots/MN_ProgressDialog_Screenshot_002.png)
-![](https://github.com/maning0303/MNProgressDialog/raw/master/screenshots/MN_ProgressDialog_Screenshot_004.png)
+![](https://github.com/maning0303/MNProgressDialog/raw/master/screenshots/mn_dialog_01.png)
 
 
 ## 如何添加
