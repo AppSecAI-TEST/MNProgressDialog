@@ -1,7 +1,6 @@
 package com.maning.mnprogressdialog;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +9,8 @@ import android.widget.Button;
 
 import com.maning.mndialoglibrary.MProgressDialog;
 import com.maning.mndialoglibrary.MStatusDialog;
+import com.maning.mndialoglibrary.MToast;
+import com.maning.mndialoglibrary.MToastConfig;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -213,23 +214,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 showStatusDialog04();
                 break;
             case R.id.btn10:
-                showStatusDialog05();
+                showToast();
                 break;
             case R.id.btn11:
-                showStatusDialog06();
+                showToastCustom();
                 break;
         }
     }
 
-    private void showStatusDialog06() {
-        mMStatusDialog = new MStatusDialog(this);
-        mMStatusDialog.showToast("OkGo - 3.0 震撼来袭，该库是基于 Http 协议，封装了 OkHttp 的网络请求框架，比 Retrofit 更简单易用，支持 RxJava，RxJava2，支持自定义缓存，支持批量断点下载管理和批量上传管理功能");
+    private void showToastCustom() {
+        MToastConfig config = new MToastConfig.Builder()
+                .setGravity(MToastConfig.MToastGravity.CENTRE)
+                .setTextColor(getMyColor(R.color.colorDialogTextColor))
+                .setBackgroundColor(getMyColor(R.color.colorDialogViewBg))
+                .setBackgroundCornerRadius(20)
+                .build();
+        MToast.makeTextShort(mContext, "您已经成为了金卡会员,恭喜!!您已经成为了金卡会员,恭喜!!您已经成为了金卡会员,恭喜!!您已经成为了金卡会员,恭喜!!",config).show();
+
     }
 
-    private void showStatusDialog05() {
-        mMStatusDialog = new MStatusDialog(this);
-        mMStatusDialog.showToast("网络失败");
+    private void showToast() {
+        MToast.makeTextShort(mContext, "提交数据失败,请重新尝试!").show();
     }
+
 
     private void showStatusDialog01() {
         mMStatusDialog = new MStatusDialog(this);
@@ -238,7 +245,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void showStatusDialog02() {
         mMStatusDialog = new MStatusDialog(this);
-        mMStatusDialog.showError("提交数据失败,请重新尝试!");
+        mMStatusDialog.setImageTintColor(getMyColor(R.color.colorAccent));
+        mMStatusDialog.showError("提交数据失败,请重新尝试!,这个图片颜色可以随意替换");
     }
 
     private void showStatusDialog03() {
@@ -247,12 +255,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showStatusDialog04() {
-        //不一样的颜色
-        mMStatusDialog.setImageTintColor(Color.YELLOW);
+        mMStatusDialog = new MStatusDialog(this);
         mMStatusDialog.setBackgroundViewColor(getMyColor(R.color.colorDialogViewBg2));
-        mMStatusDialog.setTextColor(getMyColor(R.color.colorDialogTextColor));
+        mMStatusDialog.setTextColor(getMyColor(R.color.colorAccent));
         mMStatusDialog.setBackgroundViewCornerRadius(2);
-        mMStatusDialog.showError("颜色自定义显示");
+        mMStatusDialog.showCustom(mContext.getResources().getDrawable(R.mipmap.ic_launcher), "自定义图片和颜色");
     }
 
     private float currentProgress = 0.0f;

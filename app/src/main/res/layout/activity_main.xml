@@ -13,37 +13,48 @@
         android:padding="10dp"
         >
 
-        <Button
-            android:id="@+id/btn01"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:stateListAnimator="@null"
-            android:text="show(默认)"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"/>
+            android:orientation="horizontal"
+            >
 
-        <Button
-            android:id="@+id/btn02"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorPrimary"
-            android:stateListAnimator="@null"
-            android:text="show(多文本)"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"/>
+            <Button
+                android:id="@+id/btn01"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:stateListAnimator="@null"
+                android:text="show(默认)"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"/>
 
-        <Button
-            android:id="@+id/btn03"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorPrimary"
-            android:stateListAnimator="@null"
-            android:text="show(没有文本)"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"/>
+            <Button
+                android:id="@+id/btn02"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:stateListAnimator="@null"
+                android:text="show(多文本)"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"/>
+
+            <Button
+                android:id="@+id/btn03"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:stateListAnimator="@null"
+                android:text="show(没有文本)"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"/>
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/btn04"
@@ -117,15 +128,24 @@
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"/>
 
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            >
+
             <Button
                 android:id="@+id/btn09"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@color/colorPrimary"
                 android:stateListAnimator="@null"
-                android:text="自定义"
+                android:text="自定义图片"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"/>
 
@@ -153,7 +173,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorPrimary"
                 android:stateListAnimator="@null"
-                android:text="Toast显示"
+                android:text="Toast默认"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"/>
 
@@ -165,7 +185,7 @@
                 android:layout_weight="1"
                 android:background="@color/colorPrimary"
                 android:stateListAnimator="@null"
-                android:text="Toast显示(长文案)"
+                android:text="Toast自定义"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"/>
 

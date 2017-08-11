@@ -2,7 +2,7 @@
 <resources>
 
     <color name="mn_colorDialogWindowBg">#00000000</color>
-    <color name="mn_colorDialogViewBg">#cc000000</color>
+    <color name="mn_colorDialogViewBg">#dd000000</color>
     <color name="mn_colorDialogTextColor">#ffffff</color>
     <color name="mn_colorDialogProgressBarColor">#ffffff</color>
     <color name="mn_colorDialogImageTintColor">#ffffff</color>
