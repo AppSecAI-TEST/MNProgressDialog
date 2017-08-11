@@ -258,7 +258,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         MToastConfig config = new MToastConfig.Builder()
                 .setTextColor(getMyColor(R.color.white))
                 .setBackgroundColor(getMyColor(R.color.colorDialogTest))
-                .setBackgroundCornerRadius(20)
                 .setToastIcon(mContext.getResources().getDrawable(R.mipmap.ic_launcher))
                 .build();
         MToast.makeTextShort(mContext, "我是自定义Toast", config).show();
