@@ -13,12 +13,21 @@
         android:layout_centerInParent="true"
         android:background="@drawable/mn_progress_dialog_bg"
         android:gravity="center"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:paddingBottom="12dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
         android:paddingTop="12dp"
         >
+
+        <ImageView
+            android:id="@+id/ivLeftShow"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/mn_icon_dialog_hint"
+            />
 
         <TextView
             android:id="@+id/tvShowToast"
@@ -27,7 +36,7 @@
             android:ellipsize="end"
             android:text="Toast"
             android:textColor="@color/mn_colorDialogTextColor"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:visibility="visible"
             />
 

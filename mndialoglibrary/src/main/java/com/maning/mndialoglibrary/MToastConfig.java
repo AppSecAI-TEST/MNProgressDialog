@@ -1,6 +1,7 @@
 package com.maning.mndialoglibrary;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 
 /**
@@ -15,8 +16,11 @@ public class MToastConfig {
 
     public int ToastTextColor = Color.parseColor("#FFFFFF");
     public int ToastBackgroundColor = Color.parseColor("#DD000000");
-    public float ToastBackgroundCornerRadius = 10.0f;
+    public float ToastBackgroundCornerRadius = 30.0f;
+    public float ToastBackgroundStrokeWidth = 0.0f;
+    public int ToastBackgroundStrokeColor = Color.parseColor("#00000000");
     public MToastGravity ToastGravity = MToastGravity.BOTTOM;
+    public Drawable ToastIcon = null;
 
 
     private MToastConfig() {
@@ -51,6 +55,21 @@ public class MToastConfig {
 
         public Builder setGravity(MToastGravity toastGravity) {
             mToastConfig.ToastGravity = toastGravity;
+            return this;
+        }
+
+        public Builder setToastIcon(Drawable ToastIcon) {
+            mToastConfig.ToastIcon = ToastIcon;
+            return this;
+        }
+
+        public Builder setBackgroundStrokeWidth(float width) {
+            mToastConfig.ToastBackgroundStrokeWidth = width;
+            return this;
+        }
+
+        public Builder setBackgroundStrokeColor(@ColorInt int strokeColor) {
+            mToastConfig.ToastBackgroundStrokeColor = strokeColor;
             return this;
         }
     }

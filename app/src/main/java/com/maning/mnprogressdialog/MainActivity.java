@@ -1,6 +1,7 @@
 package com.maning.mnprogressdialog;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btn09;
     private Button btn10;
     private Button btn11;
+    private Button btn12;
+    private Button btn13;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn09 = (Button) findViewById(R.id.btn09);
         btn10 = (Button) findViewById(R.id.btn10);
         btn11 = (Button) findViewById(R.id.btn11);
+        btn12 = (Button) findViewById(R.id.btn12);
+        btn13 = (Button) findViewById(R.id.btn13);
 
         btn01.setOnClickListener(this);
         btn02.setOnClickListener(this);
@@ -74,6 +79,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn09.setOnClickListener(this);
         btn10.setOnClickListener(this);
         btn11.setOnClickListener(this);
+        btn12.setOnClickListener(this);
+        btn13.setOnClickListener(this);
     }
 
     private void configDialogDefault() {
@@ -219,22 +226,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn11:
                 showToastCustom();
                 break;
+            case R.id.btn12:
+                showToastCustom2();
+                break;
+            case R.id.btn13:
+                showToastCustom3();
+                break;
         }
+    }
+
+    private void showToastCustom3() {
+        MToastConfig config = new MToastConfig.Builder()
+                .setBackgroundStrokeColor(Color.WHITE)
+                .setBackgroundStrokeWidth(1)
+                .setBackgroundCornerRadius(10)
+                .build();
+        MToast.makeTextShort(mContext, "我是很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长自定义Toast", config).show();
+    }
+
+    private void showToastCustom2() {
+        MToastConfig config = new MToastConfig.Builder()
+                .setGravity(MToastConfig.MToastGravity.CENTRE)
+                .setTextColor(getMyColor(R.color.white))
+                .setBackgroundColor(getMyColor(R.color.colorDialogTest))
+                .setBackgroundCornerRadius(10)
+                .build();
+        MToast.makeTextShort(mContext, "我是很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长自定义Toast", config).show();
     }
 
     private void showToastCustom() {
         MToastConfig config = new MToastConfig.Builder()
-                .setGravity(MToastConfig.MToastGravity.CENTRE)
-                .setTextColor(getMyColor(R.color.colorDialogTextColor))
-                .setBackgroundColor(getMyColor(R.color.colorDialogViewBg))
+                .setTextColor(getMyColor(R.color.white))
+                .setBackgroundColor(getMyColor(R.color.colorDialogTest))
                 .setBackgroundCornerRadius(20)
+                .setToastIcon(mContext.getResources().getDrawable(R.mipmap.ic_launcher))
                 .build();
-        MToast.makeTextShort(mContext, "您已经成为了金卡会员,恭喜!!您已经成为了金卡会员,恭喜!!您已经成为了金卡会员,恭喜!!您已经成为了金卡会员,恭喜!!",config).show();
+        MToast.makeTextShort(mContext, "我是自定义Toast", config).show();
 
     }
 
     private void showToast() {
-        MToast.makeTextShort(mContext, "提交数据失败,请重新尝试!").show();
+        MToast.makeTextShort(mContext, "我是默认Toast").show();
     }
 
 

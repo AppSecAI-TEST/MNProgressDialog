@@ -1,11 +1,13 @@
 package com.maning.mndialoglibrary;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ public class MToast {
 
     private static Toast currentToast;
     private static TextView tvShowToast;
+    private static ImageView ivLeftShow;
     private static LinearLayout toastBackgroundView;
 
     public static Toast makeTextLong(@NonNull Context context, @NonNull CharSequence message, MToastConfig config) {
@@ -55,30 +58,41 @@ public class MToast {
                 .inflate(R.layout.mn_toast_layout, null);
 
         tvShowToast = (TextView) toastLayout.findViewById(R.id.tvShowToast);
+        ivLeftShow = (ImageView) toastLayout.findViewById(R.id.ivLeftShow);
         toastBackgroundView = (LinearLayout) toastLayout.findViewById(R.id.toastBackgroundView);
         currentToast.setView(toastLayout);
-
 
         //相关配置
         if (config == null) {
             config = new MToastConfig.Builder().build();
         }
-
+        MToastConfig.MToastGravity ToastGravity = config.ToastGravity;
         int ToastTextColor = config.ToastTextColor;
         int ToastBackgroundColor = config.ToastBackgroundColor;
         float ToastBackgroundCornerRadius = config.ToastBackgroundCornerRadius;
-        MToastConfig.MToastGravity ToastGravity = config.ToastGravity;
+        Drawable ToastIcon = config.ToastIcon;
+        int ToastBackgroundStrokeColor = config.ToastBackgroundStrokeColor;
+        float ToastBackgroundStrokeWidth = config.ToastBackgroundStrokeWidth;
 
 
+        //图片的显示
+        if (ToastIcon == null) {
+            ivLeftShow.setVisibility(View.GONE);
+        } else {
+            ivLeftShow.setVisibility(View.VISIBLE);
+            ivLeftShow.setImageDrawable(ToastIcon);
+        }
         //文字的颜色
         tvShowToast.setTextColor(ToastTextColor);
         //背景色和圆角
         GradientDrawable myGrad = (GradientDrawable) toastBackgroundView.getBackground();
         myGrad.setCornerRadius(dip2px(context, ToastBackgroundCornerRadius));
         myGrad.setColor(ToastBackgroundColor);
+        myGrad.setStroke(dip2px(context, ToastBackgroundStrokeWidth), ToastBackgroundStrokeColor);
         toastBackgroundView.setBackground(myGrad);
-
+        //文字
         tvShowToast.setText(message);
+        //时间
         currentToast.setDuration(duration);
         //显示位置
         if (ToastGravity == MToastConfig.MToastGravity.CENTRE) {
